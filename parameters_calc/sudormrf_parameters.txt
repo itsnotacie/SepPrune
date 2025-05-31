@@ -1,0 +1,280 @@
+     (final_norm): NormAct(
+        1, 0.000% Params, 2.46 MMac, 0.018% MACs,
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (res_conv): Conv1d(65.66 k, 2.414% Params, 315.19 MMac, 2.259% MACs, 512, 128, kernel_size=(1,), stride=(1,))
+    )
+    (1): UConvBlock(
+      147.07 k, 5.406% Params, 670.31 MMac, 4.804% MACs,
+      (proj_1x1): ConvNormAct(
+        66.05 k, 2.428% Params, 319.49 MMac, 2.290% MACs,
+        (conv): Conv1d(66.05 k, 2.428% Params, 317.03 MMac, 2.272% MACs, 128, 512, kernel_size=(1,), stride=(1,))
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (spp_dw): ModuleList(
+        (0): DilatedConvNorm(
+          3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): DilatedConvNorm(
+          3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): DilatedConvNorm(
+          3.07 k, 0
+          3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): DilatedConvNorm(
+          3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (4): DilatedConvNorm(
+          3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+      (upsampler): Upsample(0, 0.000% Params, 4.61 MMac, 0.033% MACs, scale_factor=2.0, mode='nearest')
+      (final_norm): NormAct(
+        1, 0.000% Params, 2.46 MMac, 0.018% MACs,
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (res_conv): Conv1d(65.66 k, 2.414% Params, 315.19 MMac, 2.259% MACs, 512, 128, kernel_size=(1,), stride=(1,))
+    )
+    (3): UConvBlock(
+      147.07 k, 5.406% Params, 670.31 MMac, 4.804% MACs,
+      (proj_1x1): ConvNormAct(
+        66.05 k, 2.428% Params, 319.49 MMac, 2.290% MACs,
+        (conv): Conv1d(66.05 k, 2.428% Params, 317.03 MMac, 2.272%
+e=(1,))
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (spp_dw): ModuleList(
+        (0): DilatedConvNorm(
+          3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): DilatedConvNorm(
+          3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): DilatedConvNorm(
+          3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): DilatedConvNorm(
+          3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (4): DilatedConvNorm(
+          3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs,
+          (conv): Conv1d(3.07 k
+e=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+      (upsampler): Upsample(0, 0.000% Params, 4.61 MMac, 0.033% MACs, scale_factor=2.0, mode='nearest')
+      (final_norm): NormAct(
+        1, 0.000% Params, 2.46 MMac, 0.018% MACs,
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (res_conv): Conv1d(65.66 k, 2.414% Params, 315.19 MMac, 2.259% MACs, 512, 128, kernel_size=(1,), stride=(1,))
+    )
+    (6): UConvBlock(
+      147.07 k, 5.406% Params, 670.31 MMac, 4.804% MACs,
+      (proj_1x1): ConvNormAct(
+        66.05 k, 2.428% Params, 319.49 MMac, 2.290% MACs,
+        (conv): Conv1d(66.05 k, 2.428% Params, 317.03 MMac, 2.272% MACs, 128, 512, kernel_size=(1,), stride=(1,))
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (spp_dw): ModuleList(
+        (0): DilatedConvNorm(
+          3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): DilatedConvNorm(
+          3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 7.37 M
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): DilatedConvNorm(
+          3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): DilatedConvNorm(
+          3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (4): DilatedConvNorm(
+          3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+      (upsampler): Upsample(0, 0.000% Params, 4.61 MMac, 0.033% MACs, scale_factor=2.0, mode='nearest')
+      (final_norm): NormAct(
+        1, 0.000% Params, 2.46 MMac, 0.018% MACs,
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (res_conv): Conv1d(65.66 k, 2.414% Params, 315.19 MMac, 2.259% MACs, 512, 128, kernel_size=(1,), stride=(1,))
+    )
+    (8): UConvBlock(
+
+    (9): UConvBlock(
+      147.07 k, 5.406% Params, 670.31 MMac, 4.804% MACs,
+      (proj_1x1): ConvNormAct(
+        66.05 k, 2.428% Params, 319.49 MMac, 2.290% MACs,
+        (conv): Conv1d(66.05 k, 2.428% Params, 317.03 MMac, 2.272% MACs, 128, 512, kernel_size=(1,), stride=(1,))
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (spp_dw): ModuleList(
+        (0): DilatedConvNorm(
+          3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): DilatedConvNorm(
+          3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): DilatedConvNorm(
+          3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): DilatedConvNorm(
+          3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,),
+        )
+        (4): DilatedConvNorm(
+          3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+      (upsampler): Upsample(0, 0.000% Params, 4.61 MMac, 0.033% MACs, scale_factor=2.0, mode='nearest')
+      (final_norm): NormAct(
+        1, 0.000% Params, 2.46 MMac, 0.018% MACs,
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (res_conv): Conv1d(65.66 k, 2.414% Params, 315.19 MMac, 2.259% MACs, 512, 128, kernel_size=(1,), stride=(1,))
+    )
+    (11): UConvBlock(
+      147.07 k, 5.406% Params, 670.31 MMac, 4.804% MACs,
+      (proj_1x1): ConvNormAct(
+        66.05 k, 2.428% Params, 319.49 MMac, 2.290% MACs,
+        (conv): Conv1d(66.05 k, 2.428% Params, 317.03 MMac, 2.272% MACs, 128, 512, kernel_size=(1,), stride=(1,))
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (spp_dw): ModuleList(
+        (0): DilatedConvNorm(
+          3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512)
+
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): DilatedConvNorm(
+          3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): DilatedConvNorm(
+          3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): DilatedConvNorm(
+          3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (4): DilatedConvNorm(
+          3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+      (upsampler): Upsample(0, 0.000% Params, 4.61 MMac, 0.033% MACs, scale_factor=2.0, mode='nearest')
+      (final_norm): NormAct(
+        1, 0.000% Params, 2.46 MMac, 0.018% MACs,
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(
+      )
+      (res_conv): Conv1d(65.66 k, 2.414% Params, 315.19 MMac, 2.259% MACs, 512, 128, kernel_size=(1,), stride=(1,))
+    )
+    (14): UConvBlock(
+      147.07 k, 5.406% Params, 670.31 MMac, 4.804% MACs,
+      (proj_1x1): ConvNormAct(
+        66.05 k, 2.428% Params, 319.49 MMac, 2.290% MACs,
+        (conv): Conv1d(66.05 k, 2.428% Params, 317.03 MMac, 2.272% MACs, 128, 512, kernel_size=(1,), stride=(1,))
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (spp_dw): ModuleList(
+        (0): DilatedConvNorm(
+          3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 14.75 MMac, 0.106% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): DilatedConvNorm(
+          3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 7.37 MMac, 0.053% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): DilatedConvNorm(
+          3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 3.69 MMac, 0.026% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+
+        (3): DilatedConvNorm(
+          3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 1.84 MMac, 0.013% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (4): DilatedConvNorm(
+          3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs,
+          (conv): Conv1d(3.07 k, 0.113% Params, 921.6 KMac, 0.007% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+      (upsampler): Upsample(0, 0.000% Params, 4.61 MMac, 0.033% MACs, scale_factor=2.0, mode='nearest')
+      (final_norm): NormAct(
+        1, 0.000% Params, 2.46 MMac, 0.018% MACs,
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.018% MACs, num_parameters=1)
+      )
+      (res_conv): Conv1d(65.66 k, 2.414% Params, 315.19 MMac, 2.259% MACs, 512, 128, kernel_size=(1,), stride=(1,))
+    )
+  )
+  (mask_net): Sequential(
+    132.1 k, 4.856% Params, 634.68 MMac, 4.548% MACs,
+    (0): PReLU(1, 0.000% Params, 614.4 KMac, 0.004% MACs, num_parameters=1)
+    (1): Conv1d(132.1 k, 4.856% Params, 634.06 MMac, 4.544% MACs, 128, 1024, kernel_size=(1,), stride=(1,))
+  )
+  (decoder): ConvTranspose1d(43.01 k, 1.581% Params, 2.06 GMac, 14.795% MACs, 1024, 2, kernel_size=(21,), stride=(10,), padding=(10,), output_padding=(9,), bias=False)
+  (mask_nl_class): ReLU(0, 0.000% Params, 4.92 MMac, 0.035% MACs, )
+)
+FLOPs: 13.95 GMac, Params: 2.72 M

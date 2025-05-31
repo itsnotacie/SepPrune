@@ -1,0 +1,265 @@
+TDANet(
+  2.32 M, 98.431% Params, 14.07 GMac, 98.096% MACs,
+  (encoder): Conv1d(2.11 k, 0.090% Params, 6.36 MMac, 0.044% MACs, 1, 33, kernel_size=(64,), stride=(16,), padding=(32,), bias=False)
+  (ln): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (bottleneck): Conv1d(4.35 k, 0.185% Params, 13.1 MMac, 0.091% MACs, 33, 128, kernel_size=(1,), stride=(1,))
+  (sm): Recurrent(
+    2.29 M, 97.435% Params, 13.62 GMac, 94.943% MACs,
+    (unet): UConvBlock(
+      2.29 M, 97.424% Params, 13.6 GMac, 94.822% MACs,
+      (proj_1x1): ConvNormAct(
+        66.05 k, 2.806% Params, 3.21 GMac, 22.343% MACs,
+        (conv): Conv1d(66.05 k, 2.806% Params, 3.18 GMac, 22.171% MACs, 128, 512, kernel_size=(1,), stride=(1,))
+        (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        (act): PReLU(1, 0.000% Params, 24.66 MMac, 0.172% MACs, num_parameters=1)
+      )
+      (spp_dw): ModuleList(
+        (0): DilatedConvNorm(
+          3.07 k, 0.131% Params, 147.95 MMac, 1.031% MACs,
+          (conv): Conv1d(3.07 k, 0.131% Params, 147.95 MMac, 1.031% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): DilatedConvNorm(
+          3.07 k, 0.131% Params, 73.97 MMac, 0.516% MACs,
+          (conv): Conv1d(3.07 k, 0.131% Params, 73.97 MMac, 0.516% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): DilatedConvNorm(
+          3.07 k, 0.131% Params, 37.01 MMac, 0.258% MACs,
+          (conv): Conv1d(3.07 k, 0.131% Params, 37.01 MMac, 0.258% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): DilatedConvNorm(
+          3.07 k, 0.131% Params, 18.53 MMac, 0.129% MACs,
+          (conv): Conv1d(3.07 k, 0.131% Params, 18.53 MMac, 0.129% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (4): DilatedConvNorm(
+          3.07 k, 0.131% Params, 9.29 MMac, 0.065% MACs,
+          (conv): Conv1d(3.07 k, 0.131% Params, 9.29 MMac, 0.065% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+      (loc_glo_fus): ModuleList(
+        (0): LA(
+          1.54 k, 0.065% Params, 27.75 MMac, 0.193% MACs,
+          (local_embedding): ConvNorm(
+            512, 0.022% Params, 24.66 MMac, 0.172% MACs,
+            (conv): Conv1d(512, 0.022% Params, 24.66 MMac, 0.172% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): LA(
+          1.54 k, 0.065% Params, 15.43 MMac, 0.108% MACs,
+          (local_embedding): ConvNorm(
+            512, 0.022% Params, 12.33 MMac, 0.086% MACs,
+            (conv): Conv1d(512, 0.022% Params, 12.33 MMac, 0.086% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): LA(
+          1.54 k, 0.065% Params, 9.27 MMac, 0.065% MACs,
+          (local_embedding): ConvNorm(
+            512, 0.022% Params, 6.17 MMac, 0.043% MACs,
+            (conv): Conv1d(512, 0.022% Params, 6.17 MMac, 0.043% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): LA(
+          1.54 k, 0.065% Params, 6.18 MMac, 0.043% MACs,
+          (local_embedding): ConvNorm(
+            512, 0.022% Params, 3.09 MMac, 0.022% MACs,
+            (conv): Conv1d(512, 0.022% Params, 3.09 MMac, 0.022% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (4): LA(
+          1.54 k, 0.065% Params, 4.64 MMac, 0.032% MACs,
+          (local_embedding): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            512, 0.022% Params, 1.55 MMac, 0.011% MACs,
+            (conv): Conv1d(512, 0.022% Params, 1.55 MMac, 0.011% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+      (res_conv): Conv1d(65.66 k, 2.790% Params, 3.16 GMac, 22.042% MACs, 512, 128, kernel_size=(1,), stride=(1,))
+      (globalatt): GA(
+        2.11 M, 89.544% Params, 6.38 GMac, 44.451% MACs,
+        (attn): MultiHeadAttention(
+          1.05 M, 44.728% Params, 3.18 GMac, 22.199% MACs,
+          (pos_enc): PositionalEncoding(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          (attn_in_norm): LayerNorm(1.02 k, 0.044% Params, 1.55 MMac, 0.011% MACs, (512,), eps=1e-05, elementwise_affine=True)
+          (attn): MultiheadAttention(
+            1.05 M, 44.641% Params, 3.18 GMac, 22.177% MACs,
+            (out_proj): NonDynamicallyQuantizableLinear(0, 0.000% Params, 0.0 Mac, 0.000% MACs, in_features=512, out_features=512, bias=True)
+          )
+          (dropout): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.1, inplace=False)
+          (norm): LayerNorm(1.02 k, 0.044% Params, 1.55 MMac, 0.011% MACs, (512,), eps=1e-05, elementwise_affine=True)
+        )
+        (mlp): FFN(
+          1.05 M, 44.815% Params, 3.19 GMac, 22.253% MACs,
+          (fc1): ConvNorm(
+            524.29 k, 22.277% Params, 1.59 GMac, 11.051% MACs,
+            (conv): Conv1d(524.29 k, 22.277% Params, 1.59 GMac, 11.051% MACs, 512, 1024, kernel_size=(1,), stride=(1,), bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (dwconv): Conv1d(6.14 k, 0.261% Params, 18.58 MMac, 0.130% MACs, 1024, 1024, kernel_size=(5,), stride=(1,), padding=(2,), groups=1024)
+          (act): ReLU(0, 0.000% Params, 3.1 MMac, 0.022% MACs, )
+          (fc2): ConvNorm(
+            524.29 k, 22.277% Params, 1.59 GMac, 11.051% MACs,
+            (conv): Conv1d(524.29 k, 22.277% Params, 1.59 GMac, 11.051% MACs, 1024, 512, kernel_size=(1,), stride=(1,), bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (drop): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.1, inplace=False)
+        )
+        (drop_path): DropPath(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+      )
+      (last_layer): ModuleList(
+        (0): LA(
+          7.68 k, 0.326% Params, 246.58 MMac, 1.719% MACs,
+          (local_embedding): ConvNorm(
+            2.56 k, 0.109% Params, 123.29 MMac, 0.859% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 123.29 MMac, 0.859% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            2.56 k, 0.109% Params, 61.64 MMac, 0.430% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 61.64 MMac, 0.430% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            2.56 k, 0.109% Params, 61.64 MMac, 0.430% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 61.64 MMac, 0.430% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): LA(
+          7.68 k, 0.326% Params, 123.33 MMac, 0.860% MACs,
+          (local_embedding): ConvNorm(
+            2.56 k, 0.109% Params, 61.64 MMac, 0.430% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 61.64 MMac, 0.430% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): LA(
+          7.68 k, 0.326% Params, 61.73 MMac, 0.430% MACs,
+          (local_embedding): ConvNorm(
+            2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            2.56 k, 0.109% Params, 15.44 MMac, 0.108% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 15.44 MMac, 0.108% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            2.56 k, 0.109% Params, 15.44 MMac, 0.108% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 15.44 MMac, 0.108% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): LA(
+          7.68 k, 0.326% Params, 77.13 MMac, 0.538% MACs,
+          (local_embedding): ConvNorm(
+            2.56 k, 0.109% Params, 15.44 MMac, 0.108% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 15.44 MMac, 0.108% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_embedding): ConvNorm(
+            2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (global_act): ConvNorm(
+            2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs,
+            (conv): Conv1d(2.56 k, 0.109% Params, 30.84 MMac, 0.215% MACs, 512, 512, kernel_size=(5,), stride=(1,), padding=(2,), groups=512, bias=False)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (act): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+      )
+    )
+    (concat_block): Sequential(
+      257, 0.011% Params, 17.34 MMac, 0.121% MACs,
+      (0): Conv1d(256, 0.011% Params, 11.56 MMac, 0.081% MACs, 128, 128, kernel_size=(1,), stride=(1,), groups=128)
+      (1): PReLU(1, 0.000% Params, 5.78 MMac, 0.040% MACs, num_parameters=1)
+    )
+  )
+  (mask_net): Sequential(
+    8.52 k, 0.362% Params, 26.01 MMac, 0.181% MACs,
+    (0): PReLU(1, 0.000% Params, 385.28 KMac, 0.003% MACs, num_parameters=1)
+    (1): Conv1d(8.51 k, 0.362% Params, 25.63 MMac, 0.179% MACs, 128, 66, kernel_size=(1,), stride=(1,))
+  )
+  (decoder): ConvTranspose1d(8.45 k, 0.359% Params, 406.72 MMac, 2.835% MACs, 66, 2, kernel_size=(64,), stride=(16,), padding=(32,), bias=False)
+  (mask_nl_class): ReLU(0, 0.000% Params, 198.66 KMac, 0.001% MACs, )
+)
+FLOPs: 14.35 GMac, Params: 2.35 M

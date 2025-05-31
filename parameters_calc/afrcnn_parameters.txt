@@ -1,0 +1,67 @@
+AFRCNN(
+  5.11 M, 99.720% Params, 112.22 GMac, 99.829% MACs,
+  (encoder): Conv1d(20.99 k, 0.409% Params, 50.38 MMac, 0.045% MACs, 1, 512, kernel_size=(41,), stride=(20,), padding=(20,), bias=False)
+  (ln): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (bottleneck): Conv1d(262.66 k, 5.122% Params, 630.37 MMac, 0.561% MACs, 512, 512, kernel_size=(1,), stride=(1,))
+  (sm): Recurrent(
+
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (1-2): 2 x None
+        )
+        (3): ModuleList(
+          (0): DilatedConvNorm(
+            3.07 k, 0.060% Params, 14.75 MMac, 0.013% MACs,
+            (conv): Conv1d(3.07 k, 0.060% Params, 14.75 MMac, 0.013% MACs, 512, 512, kernel_size=(5,), stride=(2,), padding=(2,), groups=512)
+            (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          )
+          (1): None
+        )
+      )
+      (concat_layer): ModuleList(
+        (0): ConvNormAct(
+          524.8 k, 10.235% Params, 20.17 GMac, 17.944% MACs,
+          (conv): Conv1d(524.8 k, 10.235% Params, 20.15 GMac, 17.927% MACs, 1024, 512, kernel_size=(1,), stride=(1,))
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          (act): PReLU(1, 0.000% Params, 19.66 MMac, 0.017% MACs, num_parameters=1)
+        )
+        (1): ConvNormAct(
+          786.95 k, 15.347% Params, 15.12 GMac, 13.449% MACs,
+          (conv): Conv1d(786.94 k, 15.347% Params, 15.11 GMac, 13.441% MACs, 1536, 512, kernel_size=(1,), stride=(1,))
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          (act): PReLU(1, 0.000% Params, 9.83 MMac, 0.009% MACs, num_parameters=1)
+        )
+        (2): ConvNormAct(
+          786.95 k, 15.347% Params, 7.56 GMac, 6.725% MACs,
+          (conv): Conv1d(786.94 k, 15.347% Params, 7.55 GMac, 6.720% MACs, 1536, 512, kernel_size=(1,), stride=(1,))
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MAC
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          (act): PReLU(1, 0.000% Params, 2.46 MMac, 0.002% MACs, num_parameters=1)
+        )
+      )
+      (last_layer): Sequential(
+        1.05 M, 20.459% Params, 40.3 GMac, 35.853% MACs,
+        (0): ConvNormAct(
+          1.05 M, 20.459% Params, 40.3 GMac, 35.853% MACs,
+          (conv): Conv1d(1.05 M, 20.459% Params, 40.28 GMac, 35.836% MACs, 2048, 512, kernel_size=(1,), stride=(1,))
+          (norm): GlobLN(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+          (act): PReLU(1, 0.000% Params, 19.66 MMac, 0.017% MACs, num_parameters=1)
+        )
+      )
+      (res_conv): Conv1d(262.66 k, 5.122% Params, 10.09 GMac, 8.972% MACs, 512, 512, kernel_size=(1,), stride=(1,))
+    )
+    (concat_block): Sequential(
+      1.02 k, 0.020% Params, 55.3 MMac, 0.049% MACs,
+      (0): Conv1d(1.02 k, 0.020% Params, 36.86 MMac, 0.033% MACs, 512, 512, kernel_size=(1,), stride=(1,), groups=512)
+      (1): PReLU(1, 0.000% Params, 18.43 MMac, 0.016% MACs, num_parameters=1)
+    )
+  )
+  (mask_net): Sequential(
+    525.31 k, 10.245% Params, 1.26 GMac, 1.123% MACs,
+    (0): PReLU(1, 0.000% Params, 1.23 MMac, 0.001% MACs, num_parameters=1)
+    (1): Conv1d(525.31 k, 10.245% Params, 1.26 GMac, 1.122% MACs, 512, 1024, kernel_size=(1,), stride=(1,))
+  )
+  (decoder): ConvTranspose1d(83.97 k, 1.638% Params, 4.03 GMac, 3.585% MACs, 1024, 2, kernel_size=(41,), stride=(20,), padding=(20,), output_padding=(19,), bias=False)
+  (mask_nl_class): ReLU(0, 0.000% Params, 2.46 MMac, 0.002% MACs, )
+)
+FLOPs: 112.42 GMac, Params: 5.13 M

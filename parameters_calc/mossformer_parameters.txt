@@ -1,0 +1,115 @@
+MossFormer(
+  28.57 M, 99.914% Params, 176.15 GMac, 99.833% MACs,
+  (encoder): Encoder(
+    8.19 k, 0.029% Params, 49.14 MMac, 0.028% MACs,
+    (conv1d): Conv1d(8.19 k, 0.029% Params, 49.14 MMac, 0.028% MACs, 1, 512, kernel_size=(16,), stride=(8,), bias=False)
+  )
+  (decoder): Decoder(0, 0.000% Params, 0.0 Mac, 0.000% MACs, 512, 1, kernel_size=(16,), stride=(8,), bias=False)
+  (mask_net): MossFormerMaskNet(
+    28.57 M, 99.885% Params, 176.1 GMac, 99.805% MACs,
+    (norm): GroupNorm(1.02 k, 0.004% Params, 6.14 MMac, 0.003% MACs, 1, 512, eps=1e-08, affine=True)
+    (conv1d_encoder): Conv1d(262.14 k, 0.917% Params, 1.57 GMac, 0.891% MACs, 512, 512, kernel_size=(1,), stride=(1,), bias=False)
+    (pos_enc): ScaledSinuEmbedding(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+    (mdl): ComputeAttention(
+      26.99 M, 94.375% Params, 161.91 GMac, 91.764% MACs,
+      (att_mdl): MossFormerM(
+        26.99 M, 94.371% Params, 161.91 GMac, 91.761% MACs,
+        (mossformerM): MossFormerModule(
+          26.99 M, 94.368% Params, 161.9 GMac, 91.759% MACs,
+          (layers): ModuleList(
+            (0-15): 16 x MossFormerBlock(
+              1.69 M, 5.898% Params, 10.12 GMac, 5.735% MACs,
+              (rotary_pos_emb): RotaryEmbedding(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+              (dropout): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.1, inplace=False)
+              (to_hidden): FFConvM(
+                1.09 M, 3.795% Params, 6.51 GMac, 3.690% MACs,
+                (mdl): Sequential(
+                  1.09 M, 3.795% Params, 6.51 GMac, 3.690% MACs,
+                  (0): ScaleNorm(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                  (1): Linear(1.05 M, 3.674% Params, 6.3 GMac, 3.572% MACs, in_features=512, out_features=2048, bias=True)
+                  (2): SiLU(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                  (3): MossFormerConvModule(
+                    34.82 k, 0.122% Params, 208.86 MMac, 0.118% MACs,
+                    (sequential): Sequential(
+                      34.82 k, 0.122% Params, 208.86 MMac, 0.118% MACs,
+                      (0): Transpose(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                      (1): DepthwiseConv1d(
+                        34.82 k, 0.122% Params, 208.86 MMac, 0.118% MACs,
+                        (conv): Conv1d(34.82 k, 0.122% Params, 208.86 MMac, 0.118% MACs, 2048, 2048, kernel_size=(17,), stride=(1,), padding=(8,), groups=2048, bias=False)
+                      )
+                    )
+                  )
+                  (4): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.1, inplace=False)
+                )
+              )
+              (to_qk): FFConvM(
+                67.84 k, 0.237% Params, 406.97 MMac, 0.231% MACs,
+                (mdl): Sequential(
+                  67.84 k, 0.237% Params, 406.97 MMac, 0.231% MACs,
+                  (0): ScaleNorm(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                  (1): Linear(65.66 k, 0.230% Params, 393.92 MMac, 0.223% MACs, in_features=512, out_features=128, bias=True)
+                  (2): SiLU(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                  (3): MossFormerConvModule(
+                    2.18 k, 0.008% Params, 13.05 MMac, 0.007% MACs,
+                    (sequential): Sequential(
+                      2.18 k, 0.008% Params, 13.05 MMac, 0.007% MACs,
+                      (0): Transpose(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                      (1): DepthwiseConv1d(
+                        2.18 k, 0.008% Params, 13.05 MMac, 0.007% MACs,
+                        (conv): Conv1d(2.18 k, 0.008% Params, 13.05 MMac, 0.007% MACs, 128, 128, kernel_size=(17,), stride=(1,), padding=(8,), groups=128, bias=False)
+                      )
+                    )
+                  )
+                  (4): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.1, inplace=False)
+                )
+              )
+              (qk_offset_scale): OffsetScale(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+              (to_out): FFConvM(
+                533.5 k, 1.865% Params, 3.2 GMac, 1.814% MACs,
+                (mdl): Sequential(
+                  533.5 k, 1.865% Params, 3.2 GMac, 1.814% MACs,
+                  (0): ScaleNorm(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                  (1): Linear(524.8 k, 1.835% Params, 3.15 GMac, 1.784% MACs, in_features=1024, out_features=512, bias=True)
+                  (2): SiLU(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                  (3): MossFormerConvModule(
+                    8.7 k, 0.030% Params, 52.22 MMac, 0.030% MACs,
+                    (sequential): Sequential(
+                      8.7 k, 0.030% Params, 52.22 MMac, 0.030% MACs,
+                      (0): Transpose(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+                      (1): DepthwiseConv1d(
+                        8.7 k, 0.030% Params, 52.22 MMac, 0.030% MACs,
+                        (conv): Conv1d(8.7 k, 0.030% Params, 52.22 MMac, 0.030% MACs, 512, 512, kernel_size=(17,), stride=(1,), padding=(8,), groups=512, bias=False)
+                      )
+                    )
+                  )
+                  (4): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.1, inplace=False)
+                )
+              )
+              (gateActivate): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+            )
+          )
+        )
+        (norm): LayerNorm(
+          1.02 k, 0.004% Params, 3.07 MMac, 0.002% MACs,
+          (norm): LayerNorm(1.02 k, 0.004% Params, 3.07 MMac, 0.002% MACs, (512,), eps=1e-06, elementwise_affine=True)
+        )
+      )
+      (att_norm): GroupNorm(1.02 k, 0.004% Params, 6.14 MMac, 0.003% MACs, 1, 512, eps=1e-08, affine=True)
+    )
+    (conv1d_out): Conv1d(525.31 k, 1.837% Params, 3.15 GMac, 1.786% MACs, 512, 1024, kernel_size=(1,), stride=(1,))
+    (conv1_decoder): Conv1d(262.14 k, 0.917% Params, 3.15 GMac, 1.783% MACs, 512, 512, kernel_size=(1,), stride=(1,), bias=False)
+    (prelu): PReLU(1, 0.000% Params, 3.07 MMac, 0.002% MACs, num_parameters=1)
+    (activation): ReLU(0, 0.000% Params, 6.14 MMac, 0.003% MACs, )
+    (output): Sequential(
+      262.66 k, 0.918% Params, 3.15 GMac, 1.786% MACs,
+      (0): Conv1d(262.66 k, 0.918% Params, 3.15 GMac, 1.786% MACs, 512, 512, kernel_size=(1,), stride=(1,))
+      (1): Tanh(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+    )
+    (output_gate): Sequential(
+      262.66 k, 0.918% Params, 3.15 GMac, 1.786% MACs,
+      (0): Conv1d(262.66 k, 0.918% Params, 3.15 GMac, 1.786% MACs, 512, 512, kernel_size=(1,), stride=(1,))
+      (1): Sigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+    )
+  )
+)
+FLOPs: 176.45 GMac, Params: 28.6 M
