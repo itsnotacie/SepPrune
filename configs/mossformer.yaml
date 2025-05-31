@@ -1,0 +1,78 @@
+# Network config
+audionet:
+  audionet_name: MossFormer
+  audionet_config:
+    kernel_size: 16
+    stride: 8
+    bias: false
+    out_channels: 512
+    in_channels: 512
+    num_blocks: 16
+    d_model: 512
+    attn_dropout: 0.1
+    group_size: 256
+    query_key_dim: 128
+    expansion_factor: 4.0
+    causal: false
+    norm: ln
+    num_spks: 2
+
+# Loss config
+loss:
+  train:
+    loss_func: PITLossWrapper
+    sdr_type: pairwise_neg_snr
+    config:
+      pit_from: pw_mtx
+      threshold_byloss: true
+  val:
+    loss_func: PITLossWrapper
+    sdr_type: pairwise_neg_sisdr
+    config:
+      pit_from: pw_mtx
+      threshold_byloss: false
+
+# Training config
+training:
+  system: AudioLightningModule
+  gpus: [1,0]
+  parallel: ddp
+  epochs: 500
+  early_stop:
+    monitor: val_loss/dataloader_idx_0
+    mode: min
+    patience: 30
+    verbose: true
+  SpeedAug: False
+  
+# Optim config
+optimizer:
+  optim_name: adam
+  lr: 0.001
+  weight_decay: 0
+
+# Sche config
+scheduler: 
+  sche_name: ReduceLROnPlateau
+  sche_config:
+    patience: 15
+    factor: 0.5
+
+# Data config
+datamodule:
+  data_name: LRS2DataModule
+  data_config:
+    train_dir: /public/121Data/dataset/Irs2/LRS2_bak/tr
+    valid_dir: /public/121Data/dataset/Irs2/LRS2_bak/cv
+    test_dir: /public/121Data/dataset/Irs2/LRS2_bak/tt
+    n_src: 2
+    sample_rate: 16000
+    segment: 2.0
+    normalize_audio: false
+    batch_size: 1
+    num_workers: 8
+    pin_memory: true
+    persistent_workers: false
+
+exp:
+  exp_name: MossFormer

@@ -1,0 +1,72 @@
+# Network config
+audionet:
+  audionet_name: AFRCNN
+  audionet_config:
+    out_channels: 512
+    in_channels: 512
+    num_blocks: 12
+    upsampling_depth: 4
+    
+    enc_kernel_size: 41
+    enc_num_basis: 512
+    num_sources: 2
+
+# Loss config
+loss:
+  train:
+    loss_func: PITLossWrapper
+    sdr_type: pairwise_neg_snr
+    config:
+      pit_from: pw_mtx
+      threshold_byloss: true
+  val:
+    loss_func: PITLossWrapper
+    sdr_type: pairwise_neg_sisdr
+    config:
+      pit_from: pw_mtx
+      threshold_byloss: false
+
+# Training config
+training:
+  system: AudioLightningModule
+  gpus: [0,1,2,3,4,6,7]
+  parallel: ddp
+  epochs: 500
+  early_stop:
+    monitor: val_loss/dataloader_idx_0
+    mode: min
+    patience: 10000
+    verbose: true
+  SpeedAug: False
+  
+# Optim config
+optimizer:
+  optim_name: adam
+  lr: 0.001
+  weight_decay: 0
+
+# Sche config
+scheduler: 
+  sche_name: ReduceLROnPlateau
+  sche_config:
+    patience: 15
+    factor: 0.5
+
+# Data config
+datamodule:
+  data_name: EchoSetDataModule
+  data_config:
+    train_dir: /public2/ly/dataset/audio/EchoSet/train
+    valid_dir: /public2/ly/dataset/audio/EchoSet/val
+    test_dir: /public2/ly/dataset/audio/EchoSet/test
+    n_src: 2
+    sample_rate: 16000
+    segment: 2.0
+    normalize_audio: false
+    batch_size: 1
+    num_workers: 8
+    pin_memory: true
+    persistent_workers: false
+
+exp:
+  exp_name: AFRCNN12_EchoSet
